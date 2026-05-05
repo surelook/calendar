@@ -41,11 +41,10 @@ function getParlance(date) {
 
   if (daysAway === 0) return 'today';
   if (daysAway === 1) return 'tomorrow';
-  if (daysAway === 2) return 'the day after tomorrow';
   if (daysAway <= 7)  return `this ${dow}`;
   if (daysAway <= 14) return `next ${dow}`;
-  if (daysAway <= 21) return `${dow} week`;
-  if (daysAway <= 28) return `${dow} in three weeks`;
+  if (daysAway <= 21) return `next ${dow} week`;
+  if (daysAway <= 28) return `${dow} three weeks`;
 
   return '';
 }
