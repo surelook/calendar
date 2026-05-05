@@ -163,6 +163,10 @@ h1 {
   margin-top: auto;
 }
 
+.day-cell.past .day-parlance {
+  color: var(--text-tertiary);
+}
+
 .today-dot {
   position: absolute;
   top: 7px;

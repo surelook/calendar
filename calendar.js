@@ -34,13 +34,13 @@ function startOfWeek(date) {
 }
 
 function getParlance(date) {
-  if (date < today) return '';
-
   const daysAway = Math.round((date - today) / 86400000);
   const dow = DAY_FULL[date.getDay()];
 
-  if (daysAway === 0) return 'today';
-  if (daysAway === 1) return 'tomorrow';
+  if (daysAway === -1) return 'yesterday';
+  if (daysAway < 0)    return `last ${dow}`;
+  if (daysAway === 0)  return 'today';
+  if (daysAway === 1)  return 'tomorrow';
   if (daysAway < 7)   return `this ${dow}`;
   if (daysAway < 14)  return `next ${dow}`;
   if (daysAway < 21)  return `next ${dow} week`;
@@ -54,8 +54,8 @@ function getParlance(date) {
 }
 
 function buildDayCell(date, weekIndex) {
-  const isToday = isSameDay(date, today);
-  const isPast  = date < today;
+  const isToday  = isSameDay(date, today);
+  const isPast   = date < today;
   const parlance = getParlance(date);
 
   const cell = document.createElement('div');
